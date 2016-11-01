@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Modules - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuefe.cn/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Modules - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "vuex"
@@ -55,6 +68,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -83,6 +97,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -90,10 +105,9 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
+            <img src="/images/patreon.png">
               <a href="/support-vuejs">支持 Vue.js</a>
-            </span>
+
         </div>
         <h2>
             
@@ -261,7 +275,7 @@
       <h1>Modules</h1>
     
     
-    <h1 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h1><p>由于使用了单一状态树，应用的所有状态都包含在一个大对象内。但是，随着我们应用规模的不断增长，这个Store变得非常臃肿。</p>
+    <p>由于使用了单一状态树，应用的所有状态都包含在一个大对象内。但是，随着我们应用规模的不断增长，这个Store变得非常臃肿。</p>
 <p>为了解决这个问题，Vuex 允许我们把 store 分 module（模块）。每一个模块包含各自的状态、mutation、action 和 getter，甚至是嵌套模块， 如下就是它的组织方式：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> moduleA = &#123;</div><div class="line">  <span class="attr">state</span>: &#123; ... &#125;,</div><div class="line">  <span class="attr">mutations</span>: &#123; ... &#125;,</div><div class="line">  <span class="attr">actions</span>: &#123; ... &#125;,</div><div class="line">  <span class="attr">getters</span>: &#123; ... &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> moduleB = &#123;</div><div class="line">  <span class="attr">state</span>: &#123; ... &#125;,</div><div class="line">  <span class="attr">mutations</span>: &#123; ... &#125;,</div><div class="line">  <span class="attr">actions</span>: &#123; ... &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">  <span class="attr">modules</span>: &#123;</div><div class="line">    <span class="attr">a</span>: moduleA,</div><div class="line">    <span class="attr">b</span>: moduleB</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">store.state.a <span class="comment">// -&gt; moduleA's state</span></div><div class="line">store.state.b <span class="comment">// -&gt; moduleB's state</span></div></pre></td></tr></table></figure>
 <h3 id="模块本地状态"><a href="#模块本地状态" class="headerlink" title="模块本地状态"></a>模块本地状态</h3><p>模块的 mutations 和 getters方法第一个接收参数是<strong>模块的本地状态</strong>。</p>

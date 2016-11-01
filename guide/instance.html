@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Vue 实例 - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuefe.cn/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Vue 实例 - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "guide"
@@ -55,6 +68,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -83,6 +97,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -90,10 +105,9 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
+            <img src="/images/patreon.png">
               <a href="/support-vuejs">支持 Vue.js</a>
-            </span>
+
         </div>
         <h2>
             
@@ -400,6 +414,7 @@
 
 <p>实例属性和方法的完整列表中查阅 <a href="/api">API 参考</a>。</p>
 <h2 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h2><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">a</span>: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// `this` 指向 vm 实例</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'a is: '</span> + <span class="keyword">this</span>.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// -&gt; "a is: 1"</span></div></pre></td></tr></table></figure>
+<p>There are also other hooks which will be called at different stages of the instance’s lifecycle, for example <code>mounted</code>, <code>updated</code>, and <code>destroyed</code>. All lifecycle hooks are called with their <code>this</code> context pointing to the Vue instance invoking it. You may have been wondering where the concept of “controllers” lives in the Vue world and the answer is: there are no controllers. Your custom logic for a component would be split among these lifecycle hooks.</p>
 <p>也有一些其它的钩子，在实例生命周期的不同阶段调用，如 <code>mounted</code>、 <code>updated</code> 、<code>destroyed</code> 。钩子的 <code>this</code> 指向调用它的 Vue 实例。一些用户可能会问 Vue.js 是否有“控制器”的概念？答案是，没有。组件的自定义逻辑可以分布在这些钩子中。</p>
 <h2 id="生命周期图示"><a href="#生命周期图示" class="headerlink" title="生命周期图示"></a>生命周期图示</h2><p>下图说明了实例的生命周期。你不需要立马弄明白所有的东西，不过以后它会有帮助。</p>
 <p><img src="/images/lifecycle.png" alt="Lifecycle"></p>

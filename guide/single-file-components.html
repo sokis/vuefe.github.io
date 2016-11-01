@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="单文件组件 - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuefe.cn/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="单文件组件 - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "guide"
@@ -55,6 +68,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -83,6 +97,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -90,10 +105,9 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
+            <img src="/images/patreon.png">
               <a href="/support-vuejs">支持 Vue.js</a>
-            </span>
+
         </div>
         <h2>
             
@@ -416,6 +430,7 @@
 <p>这个模板使用 <a href="https://webpack.github.io/" target="_blank" rel="external">Webpack</a>，一个能将多个模块打包成最终应用的模块打包工具。 <a href="https://www.youtube.com/watch?v=WQue1AN93YU" target="_blank" rel="external">这个视频</a> 介绍了Webpack的更多相关信息。 学习了这些基础知识后， 你可能想看看 <a href="https://egghead.io/courses/using-webpack-for-production-javascript-applications" target="_blank" rel="external">这个在 Egghead.io上的 高级 Webpack 课程</a>.</p>
 <p>在 Webpack中，每个模块被打包到 bundle 之前都由一个相应的 “loader” 来转换，Vue 也提供 <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="external">vue-loader</a> 插件来执行 <code>.vue</code> 单文件组件 的转换. 这个 <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external">webpack-simple</a> 模板已经为你准备好了所有的东西，但是如果你想了解更多关于 <code>.vue</code> 组件和 Webpack 如何一起运转的信息，你可以阅读 <a href="https://vue-loader.vuejs.org" target="_blank" rel="external">vue-loader 的文档</a>。</p>
 <h3 id="针对高级用户"><a href="#针对高级用户" class="headerlink" title="针对高级用户"></a>针对高级用户</h3><p>无论你更钟情 Webpack 或是 Browserify，我们为简单的和更复杂的项目都提供了一些文档模板。我们建议浏览 <a href="https://github.com/vuejs-templates" target="_blank" rel="external">github.com/vuejs-templates</a>，找到你需要的部分，然后参考 README 中的说明，使用 <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">vue-cli</a> 工具生成新的项目。</p>
+<p>Webpack 中，每个模块在构建前被加载器转变，Vue 官方插件 <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="external">vue-loader</a> 用来转变 <code>.vue</code> 单文件组件。 <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external">webpack-simple</a> 模板已经准备好了一切， 如果要更多了解 <code>.vue</code> 如何和 Webpack 配合工作， 请看 <a href="https://vue-loader.vuejs.org" target="_blank" rel="external">vue-loader 文档</a></p>
 <hr>
 <blockquote>
 <p>原文： <a href="http://vuejs.org/guide/single-file-components.html" target="_blank" rel="external">http://vuejs.org/guide/single-file-components.html</a></p>

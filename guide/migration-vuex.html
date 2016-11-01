@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="从 Vuex 0.6.x 迁移到 1.0 - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuefe.cn/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="从 Vuex 0.6.x 迁移到 1.0 - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "guide"
@@ -55,6 +68,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -83,6 +97,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -90,10 +105,9 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
+            <img src="/images/patreon.png">
               <a href="/support-vuejs">支持 Vue.js</a>
-            </span>
+
         </div>
         <h2>
             
@@ -395,7 +409,7 @@
 <p>然而它们的目标用户稍微有所不同。</p>
 <p><strong>Vuex 2.0</strong> 从根本上重新设计并且提供简洁的 API，用于帮助正在开始一个新项目的用户，或想要用客户端状态管理前沿技术的用户。<strong>此迁移指南不涵盖 Vuex 2.0 相关内容</strong>，因此如果你想了解更多，请查阅 <a href="https://vuex.vuejs.org/en/index.html" target="_blank" rel="external">Vuex 2.0 文档</a>。</p>
 <p><strong>Vuex 1.0</strong> 主要是向下兼容，所以升级只需要很小的改动。推荐拥有大量现存代码库的用户，或只想尽可能平滑升级 Vue 2.0 的用户。这份指南致力促进这一过程，但仅包括迁移说明。完整使用指南请查阅 <a href="https://github.com/vuejs/vuex/tree/1.0/docs/en" target="_blank" rel="external">Vuex 1.0 文档</a>。</p>
-<h2 id="传入字符串属性路径的-store-watch-废弃"><a href="#传入字符串属性路径的-store-watch-废弃" class="headerlink" title="传入字符串属性路径的 store.watch 废弃"></a>传入字符串属性路径的 <code>store.watch</code> <sup>废弃</sup></h2><p><code>store.watch</code> 现在只接受函数。因此，下面例子你需要替换：</p>
+<h2 id="带字符串属性路径的-store-watch-替换"><a href="#带字符串属性路径的-store-watch-替换" class="headerlink" title="带字符串属性路径的 store.watch 替换"></a>带字符串属性路径的 <code>store.watch</code> <sup>替换</sup></h2><h2 id="传入字符串属性路径的-store-watch-废弃"><a href="#传入字符串属性路径的-store-watch-废弃" class="headerlink" title="传入字符串属性路径的 store.watch 废弃"></a>传入字符串属性路径的 <code>store.watch</code> <sup>废弃</sup></h2><p><code>store.watch</code> 现在只接受函数。因此，下面例子你需要替换：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">store.watch(<span class="string">'user.notifications'</span>, callback)</div></pre></td></tr></table></figure>
 <p>为：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">store.watch(</div><div class="line">  <span class="comment">// 当返回结果改变...</span></div><div class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">state</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> state.user.notifications</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// 执行回调函数</span></div><div class="line">  callback</div><div class="line">)</div></pre></td></tr></table></figure>
@@ -406,7 +420,7 @@
   <p>在代码库运行<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">迁移工具</a>，查找在 <code>store.watch</code> 中使用字符串作为第一个参数的事例。</p>
 </div>
 
-<h2 id="Store-的事件触发器-废弃"><a href="#Store-的事件触发器-废弃" class="headerlink" title="Store 的事件触发器 废弃"></a>Store 的事件触发器 <sup>废弃</sup></h2><p>store 实例不再暴露事件触发器(event emitter)接口(<code>on</code>, <code>off</code>, <code>emit</code>)。如果你之前使用 store 作为全局的 event bus，迁移说明相关内容请查阅<a href="http://vuejs.org/guide/migration.html#dispatch-and-broadcast-deprecated" target="_blank" rel="external">此章节</a>。</p>
+<h2 id="Store-的事件触发器-移除"><a href="#Store-的事件触发器-移除" class="headerlink" title="Store 的事件触发器 移除"></a>Store 的事件触发器 <sup>移除</sup></h2><p>store 实例不再暴露事件触发器(event emitter)接口(<code>on</code>, <code>off</code>, <code>emit</code>)。如果你之前使用 store 作为全局的 event bus，迁移说明相关内容请查阅<a href="http://vuejs.org/guide/migration.html#dispatch-and-broadcast-removed" target="_blank" rel="external">此章节</a>。</p>
 <p>为了替换正在使用观察 store 自身触发事件的这些接口，（例如：<code>store.on(&#39;mutation&#39;, callback)</code>），我们引入新的方法 <code>store.subscribe</code>。在插件中的典型使用方式如下：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> myPlugin = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</div><div class="line">  store.subscribe(<span class="function"><span class="keyword">function</span> (<span class="params">mutation, state</span>) </span>&#123;</div><div class="line">    <span class="comment">// Do something...</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>更多信息请查阅<a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="external">插件文档</a>的示例。</p>
@@ -416,7 +430,7 @@
   <p>在代码库运行<a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">迁移工具</a>，查找使用了 <code>store.on</code>, <code>store.off</code>, <code>store.emit</code> 的事例。</p>
 </div>
 
-<h2 id="中间件-废弃"><a href="#中间件-废弃" class="headerlink" title="中间件 废弃"></a>中间件 <sup>废弃</sup></h2><p>中间件被替换为插件。插件是接收 store 作为仅有参数的基本函数，能够监听 store 中的 mutation 事件：</p>
+<h2 id="中间件-替换"><a href="#中间件-替换" class="headerlink" title="中间件 替换"></a>中间件 <sup>替换</sup></h2><p>中间件被替换为插件。插件是接收 store 作为仅有参数的基本函数，能够监听 store 中的 mutation 事件：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> myPlugins = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</div><div class="line">  store.subscribe(<span class="string">'mutation'</span>, (mutation, state) =&gt; &#123;</div><div class="line">    <span class="comment">// Do something...</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>更多详情, 请查阅 <a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="external">插件文档</a>。</p>
 

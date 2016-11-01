@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="条件渲染 - vue.js">
+        <meta property="og:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta property="og:image" content="https://vuefe.cn/images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="条件渲染 - vue.js">
+        <meta name="twitter:description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="twitter:image" content="https://vuefe.cn/images/logo.png">
+
+        <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
             window.PAGE_TYPE = "guide"
@@ -55,6 +68,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -83,6 +97,7 @@
     <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
     <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
     <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+    <li><a href="https://vuejobs.com/?ref_source=vue" class="nav-link" target="_blank">Jobs</a></li>
   </ul>
 </li>
 
@@ -90,10 +105,9 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
+            <img src="/images/patreon.png">
               <a href="/support-vuejs">支持 Vue.js</a>
-            </span>
+
         </div>
         <h2>
             
@@ -390,26 +404,21 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Yes<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>也可以用 <code>v-else</code> 添加一个 “else” 块：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Yes<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-else</span>&gt;</span>No<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="template-v-if"><a href="#template-v-if" class="headerlink" title="template v-if"></a>template v-if</h2><p>因为 <code>v-if</code> 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <code>&lt;template&gt;</code> 元素当做包装元素，并在上面使用 <code>v-if</code>，最终的渲染结果不会包含它。</p>
+<h3 id="template-v-if"><a href="#template-v-if" class="headerlink" title="template v-if"></a>template v-if</h3><p>因为 <code>v-if</code> 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <code>&lt;template&gt;</code> 元素当做包装元素，并在上面使用 <code>v-if</code>，最终的渲染结果不会包含它。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>另一个根据条件展示元素的选项是 <code>v-show</code> 指令。用法大体上一样：</p>
+<h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><p>可以用 <code>v-else</code> 指令给 <code>v-if</code> 或 <code>v-show</code> 添加一个 “else” 块：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Not sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>v-else</code> 元素必须紧跟在 <code>v-if</code> 或 <code>v-show</code> 元素的后面——否则它不能被识别。</p>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p>另一个根据条件展示元素的选项是 <code>v-show</code> 指令。用法大体上一样：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>不同的是有 <code>v-show</code> 的元素会始终渲染并保持在 DOM 中。<code>v-show</code> 是简单的切换元素的 CSS 属性 <code>display</code> 。</p>
 <p class="tip">注意 <code>v-show</code> 不支持 <code>&lt;template&gt;</code> 语法。</p>
 
 
-<h2 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h2><p>可以用 <code>v-else</code> 指令给 <code>v-if</code> 或 <code>v-show</code> 添加一个 “else 块”：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></div><div class="line">  Sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></div><div class="line">  Not sorry</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><code>v-else</code> 元素必须立即跟在 <code>v-if</code> 或 <code>v-show</code> 元素的后面——否则它不能被识别。</p>
-<h3 id="组件警告"><a href="#组件警告" class="headerlink" title="组件警告"></a>组件警告</h3><p>将 <code>v-show</code> 用在组件上时，因为指令的优先级 <code>v-else</code> 会出现问题。因此不要这样做：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">custom-component</span> <span class="attr">v-show</span>=<span class="string">"condition"</span>&gt;</span><span class="tag">&lt;/<span class="name">custom-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>这可能也是一个组件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>用另一个 <code>v-show</code> 替换 <code>v-else</code>：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">custom-component</span> <span class="attr">v-show</span>=<span class="string">"condition"</span>&gt;</span><span class="tag">&lt;/<span class="name">custom-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-show</span>=<span class="string">"!condition"</span>&gt;</span>这可能也是一个组件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这样就可以达到 <code>v-if</code> 的效果。</p>
-<h2 id="v-if-vs-v-show"><a href="#v-if-vs-v-show" class="headerlink" title="v-if vs. v-show"></a>v-if vs. v-show</h2><p>在切换 <code>v-if</code> 块时， Vue.js 有一个局部编译/卸载过程，因为 <code>v-if</code> 之中的模板也可能包括数据绑定或子组件。 <code>v-if</code> 是真实的条件渲染，因为它会确保条件块在切换当中合适地销毁与重建条件块内的事件监听器和子组件。</p>
+<h2 id="v-if-vs-v-show"><a href="#v-if-vs-v-show" class="headerlink" title="v-if vs. v-show"></a>v-if vs. v-show</h2><p><code>v-if</code> 是真实的条件渲染，因为它会确保条件块在切换当中适当地销毁与重建条件块内的事件监听器和子组件。</p>
 <p><code>v-if</code> 也是<strong>惰性的</strong>：如果在初始渲染时条件为假，则什么也不做——在条件第一次变为真时才开始局部编译（编译会被缓存起来）。</p>
 <p>相比之下， <code>v-show</code> 简单得多——元素始终被编译并保留，只是简单地基于 CSS 切换。</p>
-<p>一般来说， <code>v-if</code> 有更高的切换消耗而 <code>v-show</code> 有更高的初始渲染消耗。因此，如果需要频繁切换 <code>v-show</code> 较好，如果在运行时条件不大可能改变 <code>v-if</code> 较好。</p>
+<p>一般来说， <code>v-if</code> 有更高的切换消耗而 <code>v-show</code> 有更高的初始渲染消耗。因此，如果需要频繁切换使用 <code>v-show</code> 较好，如果在运行时条件不大可能改变则使用 <code>v-if</code> 较好。</p>
 <hr>
 <blockquote>
 <p>原文：<a href="http://vuejs.org/guide/conditional.html" target="_blank" rel="external">http://vuejs.org/guide/conditional.html</a></p>
